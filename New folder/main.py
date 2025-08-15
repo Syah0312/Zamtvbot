@@ -4,10 +4,9 @@ from flask import Flask, send_from_directory
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-BASE_URL = os.getenv("BASE_URL")  # Contoh: https://yourapp.onrender.com
-
-app = Flask(__name__)
+BOT_TOKEN = os.getenv("8379080026:AAGsyJMsKa7iUzO7m1kZasyTt6ULzQ1LQi8")
+BASE_URL = os.getenv("https://zamtvbot.onrender.com")
+app = Flask(zamtvbot)
 
 @app.route('/')
 def home():
@@ -30,7 +29,7 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"✅ Link Stream:\n{link}")
 
 def run_bot():
-    app_bot = ApplicationBuilder().token(BOT_TOKEN).build()
+    app_bot = ApplicationBuilder().token(8379080026:AAGsyJMsKa7iUzO7m1kZasyTt6ULzQ1LQi8).build()
     app_bot.add_handler(CommandHandler("start", start))
     app_bot.add_handler(MessageHandler(filters.Document.ALL, handle_document))
     app_bot.run_polling()
