@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: telegram-streamlink-bot
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true
+      - key: BASE_URL
+        value: https://your-app.onrender.com
